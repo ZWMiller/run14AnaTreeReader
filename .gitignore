@@ -1,0 +1,4 @@
+*.root
+*.pdf
+*.log
+.sl64_gcc482*
