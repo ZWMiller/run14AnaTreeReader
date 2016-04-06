@@ -21,6 +21,9 @@ void histMaker(const char* fileName="test")
 
   // Get Histos
   TH2F* eHadDelPhiPt = (TH2F*)f->Get("hHadgEDelPhiPt");
+  TH2F* hadPtEPt = (TH2F*)f->Get("hHadgPtEPt");
+  TH1F* ePt = (TH1F*)f->Get("hEPt");
+  float trigCount[numPtBins];
   if(DEBUG) cout << "Get Hist." << endl;
 
   //Do Projection
@@ -28,6 +31,7 @@ void histMaker(const char* fileName="test")
   for(int ptbin=0; ptbin<numPtBins; ptbin++)
   {
     eHadDelPhi[ptbin] = (TH1D*)eHadDelPhiPt->ProjectionY(Form("eHadDelPhi_%i",ptbin),eHadDelPhiPt->GetXaxis()->FindBin(lowpt[ptbin]),eHadDelPhiPt->GetXaxis()->FindBin(highpt[ptbin])-1);
+    trigCount[ptbin] = ePt->Integral(ePt->GetXaxis()->FindBin(lowpt[ptbin]),ePt->GetXaxis()->FindBin(highpt[ptbin])-1);
   }
   if(DEBUG) cout << "Proj done." << endl;
 
@@ -39,6 +43,7 @@ void histMaker(const char* fileName="test")
     dPhiPt[q] = new TCanvas(Form("dPhiPt_%i",q),"pT Dependence of DelPhi",50,50,1050,1050);
     dPhiPt[q]->Divide(3,3);
   }
+  TCanvas* ptCompare = new TCanvas("ptCompare","pT Comparison",50,50,1050,1050);
   if(DEBUG) cout << "Canvas made." << endl;
 
   // Draw on each pad
@@ -55,6 +60,10 @@ void histMaker(const char* fileName="test")
     int activeCanvas = (int) ptbin/9;
     int activeBin = ptbin - activeCanvas*9; 
     dPhiPt[activeCanvas]->cd(activeBin+1);
+    eHadDelPhi[ptbin]->Rebin(4);
+    float binWidth = eHadDelPhi[ptbin]->GetXaxis()->GetBinWidth(10);
+    eHadDelPhi[ptbin]->Scale(1./trigCount[ptbin]/binWidth);
+    eHadDelPhi[ptbin]->GetXaxis()->SetRangeUser(-1.5,4.4);
     eHadDelPhi[ptbin]->SetMarkerStyle(20);
     eHadDelPhi[ptbin]->SetMarkerColor(kBlack);
     eHadDelPhi[ptbin]->SetLineColor(kBlack);
@@ -62,6 +71,9 @@ void histMaker(const char* fileName="test")
     lbl[ptbin]->Draw("same");
   }  
 
+  ptCompare->cd();
+  gPad->SetLogz(1);
+  hadPtEPt->Draw("colz");
 
   //Set front page
   TCanvas* fp = new TCanvas("fp","Front Page",100,0,1000,900);
@@ -109,6 +121,8 @@ void histMaker(const char* fileName="test")
     temp = dPhiPt[q]; // print data canvases
     temp->Print(name);
   }
+  temp = ptCompare;
+  temp->Print(name);
 
   sprintf(name, "%s.pdf]", fileName);
   temp->Print(name);

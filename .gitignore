@@ -2,3 +2,4 @@
 *.pdf
 *.log
 .sl64_gcc482*
+*.consign

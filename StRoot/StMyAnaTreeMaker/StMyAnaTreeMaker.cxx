@@ -50,7 +50,7 @@ ClassImp(StMyAnaTreeMaker)
   mEEtaCut[0] = -1.; mEEtaCut[1] = 1.;
   mEDcaCut[0] = 0.; mEDcaCut[1] = 3.;
   mEInvBetaCut[0] = 0.975; mEInvBetaCut[1] = 1.025;
-  mELocalYCut[0] = -1.8; mELocalYCut[1] = 1.8;
+  mELocalYCut[0] = -2.0; mELocalYCut[1] = 1.8;
   mELocalZCut[0] = -3.05; mELocalZCut[1] = 3.05;
   mEnSigECut[0] = -0.8; mEnSigECut[1] = 2.5;
   mHTEnSigECut[0] = -1.5; mHTEnSigECut[1] = 3.;
@@ -199,13 +199,13 @@ void StMyAnaTreeMaker::declareHistograms() {
   hNemu = new TH2F("hNemu","#e vs. #mu;#e candidate;#mu candidate;Counts",100,0,100,100,0,100);
   hNmu = new TH2F("hNmu","#mu+ vs. #mu-;#mu^{+} candidate;#mu^{-} candidate;Counts",100,0,100,100,0,100);
 
-  hEEtavsPhi = new TH2F("hEEtavsPhi","hEEtavsPhi; #phi; #eta;",300,-3.2,3.2,200,-1,1);
-  hEPhivsPt = new TH2F("hEPhivsPt","hEPhivsPt; q*p_{T} (GeV/c); #phi;",2.*nPtBins,-ptMax,ptMax,300,-3.2,3.2);
+  hEEtavsPhi = new TH2F("hEEtavsPhi","hEEtavsPhi; #phi; #eta;",300,-2.0,4.5,200,-1,1);
+  hEPhivsPt = new TH2F("hEPhivsPt","hEPhivsPt; q*p_{T} (GeV/c); #phi;",2.*nPtBins,-ptMax,ptMax,300,-2.0,4.5);
   hEEtavsPt = new TH2F("hEEtavsPt","hEEtavsPt; q*p_{T} (GeV/c); #eta;",2.*nPtBins,-ptMax,ptMax,200,-1,1);
   hEDcavsPt = new TH2F("hEDcavsPt","hEDcavsPt; q*p_{T} (GeV/c); dca (cm);",2.*nPtBins,-ptMax,ptMax,1000,0,1);
 
-  hEEtavsPhiwHft = new TH2F("hEEtavsPhiwHft","hEEtavsPhiwHft; #phi; #eta;",300,-3.2,3.2,200,-1,1);
-  hEPhivsPtwHft = new TH2F("hEPhivsPtwHft","hEPhivsPtwHft; q*p_{T} (GeV/c); #phi;",2.*nPtBins,-ptMax,ptMax,300,-3.2,3.2);
+  hEEtavsPhiwHft = new TH2F("hEEtavsPhiwHft","hEEtavsPhiwHft; #phi; #eta;",300,-2.0,4.5,200,-1,1);
+  hEPhivsPtwHft = new TH2F("hEPhivsPtwHft","hEPhivsPtwHft; q*p_{T} (GeV/c); #phi;",2.*nPtBins,-ptMax,ptMax,300,-2.0,4.5);
   hEEtavsPtwHft = new TH2F("hEEtavsPtwHft","hEEtavsPtwHft; q*p_{T} (GeV/c); #eta;",2.*nPtBins,-ptMax,ptMax,200,-1,1);
   hEDcavsPtwHft = new TH2F("hEDcavsPtwHft","hEDcavsPtwHft; q*p_{T} (GeV/c); dca (cm);",2.*nPtBins,-ptMax,ptMax,1000,0,1);
   hEDcaXYvsPtwHft = new TH2F("hEDcaXYvsPtwHft","hEDcaXYvsPtwHft; q*p_{T} (GeV/c); dcaXY (cm);",2.*nPtBins,-ptMax,ptMax,1000,0,1);
@@ -241,13 +241,13 @@ void StMyAnaTreeMaker::declareHistograms() {
   hEmcnSigEvsPt = new TH2F("hEmcnSigEvsPt","hEmcnSigEvsPt; p_{T} (GeV/c); n#sigma_{e};",nPtBins,0,ptMax,500,-5,5);
   hTofnSigEvsPt = new TH2F("hTofnSigEvsPt","hTofnSigEvsPt; p_{T} (GeV/c); n#sigma_{e};",nPtBins,0,ptMax,500,-5,5);
 
-  hMuEtavsPhi = new TH2F("hMuEtavsPhi","hMuEtavsPhi; #phi; #eta;",300,-3.2,3.2,200,-1,1);
-  hMuPhivsPt = new TH2F("hMuPhivsPt","hMuPhivsPt; q*p_{T} (GeV/c); #phi;",2.*nPtBins,-ptMax,ptMax,300,-3.2,3.2);
+  hMuEtavsPhi = new TH2F("hMuEtavsPhi","hMuEtavsPhi; #phi; #eta;",300,-2.0,4.5,200,-1,1);
+  hMuPhivsPt = new TH2F("hMuPhivsPt","hMuPhivsPt; q*p_{T} (GeV/c); #phi;",2.*nPtBins,-ptMax,ptMax,300,-2.0,4.5);
   hMuEtavsPt = new TH2F("hMuEtavsPt","hMuEtavsPt; q*p_{T} (GeV/c); #eta;",2.*nPtBins,-ptMax,ptMax,200,-1,1);
   hMuDcavsPt = new TH2F("hMuDcavsPt","hMuDcavsPt; q*p_{T} (GeV/c); dca (cm);",2.*nPtBins,-ptMax,ptMax,1000,0,1);
 
-  hMuEtavsPhiwHft = new TH2F("hMuEtavsPhiwHft","hMuEtavsPhiwHft; #phi; #eta;",300,-3.2,3.2,200,-1,1);
-  hMuPhivsPtwHft = new TH2F("hMuPhivsPtwHft","hMuPhivsPtwHft; q*p_{T} (GeV/c); #phi;",2.*nPtBins,-ptMax,ptMax,300,-3.2,3.2);
+  hMuEtavsPhiwHft = new TH2F("hMuEtavsPhiwHft","hMuEtavsPhiwHft; #phi; #eta;",300,-2.0,4.5,200,-1,1);
+  hMuPhivsPtwHft = new TH2F("hMuPhivsPtwHft","hMuPhivsPtwHft; q*p_{T} (GeV/c); #phi;",2.*nPtBins,-ptMax,ptMax,300,-2.0,4.5);
   hMuEtavsPtwHft = new TH2F("hMuEtavsPtwHft","hMuEtavsPtwHft; q*p_{T} (GeV/c); #eta;",2.*nPtBins,-ptMax,ptMax,200,-1,1);
   hMuDcavsPtwHft = new TH2F("hMuDcavsPtwHft","hMuDcavsPtwHft; q*p_{T} (GeV/c); dca (cm);",2.*nPtBins,-ptMax,ptMax,1000,0,1);
   hMuDcaXYvsPtwHft = new TH2F("hMuDcaXYvsPtwHft","hMuDcaXYvsPtwHft; q*p_{T} (GeV/c); dcaXY (cm);",2.*nPtBins,-ptMax,ptMax,1000,0,1);
@@ -369,28 +369,30 @@ void StMyAnaTreeMaker::declareHistograms() {
 
   cout << "Declare Had Hists" << endl;
   hHadPt  = new TH1F("hHadPt","Hadron Branch Pt Spectrum; p_{T}; Counts",nPtBins,ptMin,ptMax);
+  hEPt  = new TH1F("hEPt","Electron Branch Pt Spectrum; p_{T}; Counts",nPtBins,ptMin,ptMax);
   hHadDca = new TH1F("hHadDca","Hadron Branch DCA; DCA (cm); Counts",1000,0,1); 
   hHadDcaXY = new TH1F("hHadDcaXY","Hadron Branch DCAXY; DCA_XY (cm); Counts",1000,0,1); 
   hHadDcaZ = new TH1F("hHadDcaZ","Hadron Branch DCAZ; DCA_Z (cm); Counts",1000,0,1); 
   hHadPhi = new TH1F("hHadPhi","Hadron Branch Phi; Phi; Counts",300,-3.2,3.2); 
 
   hHadEtaPhi = new TH2F("hHadEtaPhi","Hadron Branch Phi vs Pseudorapidity; Eta; Phi",200,-1,1,300,-3.2,3.2); 
-  hHadEDelPhiPt = new TH2F("hHadEDelPhiPt","Hadron-Electron DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-3.2,3.2);
-  hHadEDelPhiPt_high = new TH2F("hHadEDelPhiPt_high","Hadron-Electron DeltaPhi vs Electron Pt (hp_{T} > 2 GeV/c^{2}); p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-3.2,3.2);
-  hHadEEDelPhiPt_LS = new TH2F("hHadEEDelPhiPt_LS","Hadron-EE LS DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-3.2,3.2);
-  hHadEEDelPhiPt_US = new TH2F("hHadEEDelPhiPt_US","Hadron-EE US DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-3.2,3.2);
-  hHadMuDelPhiPt = new TH2F("hHadMuDelPhiPt","Hadron-Muon DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-3.2,3.2);
+  hHadEDelPhiPt = new TH2F("hHadEDelPhiPt","Hadron-Electron DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadEDelPhiPt_high = new TH2F("hHadEDelPhiPt_high","Hadron-Electron DeltaPhi vs Electron Pt (hp_{T} > 2 GeV/c^{2}); p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadEEDelPhiPt_LS = new TH2F("hHadEEDelPhiPt_LS","Hadron-EE LS DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadEEDelPhiPt_US = new TH2F("hHadEEDelPhiPt_US","Hadron-EE US DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadMuDelPhiPt = new TH2F("hHadMuDelPhiPt","Hadron-Muon DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
   hHadDcaPt = new TH2F("hHadDcaPt","Hadron Branch DCA vs pT; q*p_{T} (GeV/c^{2}); DCA (cm)",2*nPtBins,-ptMax,ptMax,1000,0,3); 
 
   hHadgPt  = new TH1F("hHadgPt","Hadron gMom Branch Pt Spectrum; p_{T}; Counts",nPtBins,ptMin,ptMax);
-  hHadgPhi = new TH1F("hHadgPhi","Hadron gMom Branch Phi; Phi; Counts",300,-3.2,3.2); 
-  hHadgEtaPhi = new TH2F("hHadgEtaPhi","Hadron gMom Branch Phi vs Pseudorapidity; Eta; Phi",200,-1,1,300,-3.2,3.2); 
-  hHadgEDelPhiPt = new TH2F("hHadgEDelPhiPt","Hadron gMom-Electron DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-3.2,3.2);
-  hHadgEDelPhiPt_high = new TH2F("hHadgEDelPhiPt_high","Hadron gMom-Electron DeltaPhi vs Electron Pt (hp_{T} > 2 GeV/c^{2}); p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-3.2,3.2);
-  hHadgEEDelPhiPt_LS = new TH2F("hHadgEEDelPhiPt_LS","Hadron gMom-EE LS DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-3.2,3.2);
-  hHadgEEDelPhiPt_US = new TH2F("hHadgEEDelPhiPt_US","Hadron gMom-EE US DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-3.2,3.2);
-  hHadgMuDelPhiPt = new TH2F("hHadgMuDelPhiPt","Hadron gMom-Muon DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-3.2,3.2);
+  hHadgPhi = new TH1F("hHadgPhi","Hadron gMom Branch Phi; Phi; Counts",300,-2.0,4.5); 
+  hHadgEtaPhi = new TH2F("hHadgEtaPhi","Hadron gMom Branch Phi vs Pseudorapidity; Eta; Phi",200,-1,1,300,-2.0,4.5); 
+  hHadgEDelPhiPt = new TH2F("hHadgEDelPhiPt","Hadron gMom-Electron DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadgEDelPhiPt_high = new TH2F("hHadgEDelPhiPt_high","Hadron gMom-Electron DeltaPhi vs Electron Pt (hp_{T} > 2 GeV/c^{2}); p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadgEEDelPhiPt_LS = new TH2F("hHadgEEDelPhiPt_LS","Hadron gMom-EE LS DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadgEEDelPhiPt_US = new TH2F("hHadgEEDelPhiPt_US","Hadron gMom-EE US DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadgMuDelPhiPt = new TH2F("hHadgMuDelPhiPt","Hadron gMom-Muon DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
   hHadgDcaPt = new TH2F("hHadgDcaPt","Hadron gMom Branch DCA vs pT; q*p_{T} (GeV/c^{2}); DCA (cm)",2*nPtBins,-ptMax,ptMax,1000,0,3); 
+  hHadgPtEPt = new TH2F("hHadgPtEPt","Hadron Pt vs Electron Pt; Electron p_{T}; Hadron p_{T}",nPtBins,ptMin,ptMax,nPtBins,ptMin,ptMax);
 }
 
 
@@ -523,11 +525,12 @@ Int_t StMyAnaTreeMaker::Make() {
     }
 
     // Hadron Comparisons
+    hEPt->Fill(pt); // need for normalization
     int nHad = mAnaTree->numberOfHTracks(); 
     for(int j=0; j < nHad; j++)
     {
       StHadronTrack *hTrk = (StHadronTrack*)mAnaTree->hTrack(j);
-      if(!passHadronCuts(hTrk)) continue;
+      if(!passHadronCuts(hTrk)|| hTrk->id() == eTrk->id()) continue;
       int charge = hTrk->charge();
       double hpt = hTrk->pMom().perp();
       double heta = hTrk->pMom().pseudoRapidity();
@@ -550,16 +553,17 @@ Int_t StMyAnaTreeMaker::Make() {
       hHadDcaPt ->Fill(charge*hpt,hdca);
 
       hHadgPt    ->Fill(hgpt);
+      hHadgPtEPt->Fill(pt,hgpt);
       hHadgPhi   ->Fill(hgphi);
       hHadgEtaPhi->Fill(hgeta,hgphi);
       hHadgDcaPt ->Fill(charge*hgpt,hdca);
       double dphi = hphi - phi;
       dphi = delPhiCorrect(dphi);
-      hHadEDelPhiPt->Fill(pt,dphi); // electron pt
+      if(hdca<1.0)hHadEDelPhiPt->Fill(pt,dphi); // electron pt
       if(hpt > 4.0) hHadEDelPhiPt_high->Fill(pt,dphi); // electron pt
       double dgphi = hgphi - phi;
       dgphi = delPhiCorrect(dgphi);
-      hHadgEDelPhiPt->Fill(pt,dgphi); // electron pt
+      if(dca<1.0)hHadgEDelPhiPt->Fill(pt,dgphi); // electron pt
       if(hgpt > 4.0) hHadgEDelPhiPt_high->Fill(pt,dgphi); // electron pt
     }
   }
@@ -608,12 +612,12 @@ Int_t StMyAnaTreeMaker::Make() {
       hMuDcaXYvsPtwHft->Fill(pt*charge,dcaXY);
       hMuDcaZvsPtwHft->Fill(pt*charge,dcaZ);
     }
-    // Loop over hadrons for muon correlation
+/*    // Loop over hadrons for muon correlation
     int nHad = mAnaTree->numberOfHTracks(); 
     for(int j=0; j < nHad; j++)
     {
       StHadronTrack *hTrk = (StHadronTrack*)mAnaTree->hTrack(j);
-      if(!passHadronCuts(hTrk)) continue;
+      if(!passHadronCuts(hTrk) || hTrk->id() == muTrk->id()) continue;
       int charge = hTrk->charge();
       double hpt = hTrk->pMom().perp();
       double heta = hTrk->pMom().pseudoRapidity();
@@ -642,7 +646,7 @@ Int_t StMyAnaTreeMaker::Make() {
       double dgphi = hgphi - phi;
       dgphi = delPhiCorrect(dgphi);
       hHadgMuDelPhiPt->Fill(pt,dgphi); // Muon pt
-    }
+    }*/
   }
 
 
@@ -815,7 +819,7 @@ Int_t StMyAnaTreeMaker::Make() {
     for(int j=0; j < nHad; j++)
     {
       StHadronTrack *hTrk = (StHadronTrack*)mAnaTree->hTrack(j);
-      if(!passHadronCuts(hTrk)) continue;
+      if(!passHadronCuts(hTrk) || hTrk->id() == eTrk1->id() || hTrk->id() == eTrk2->id()) continue;
       int charge = hTrk->charge();
       double hpt = hTrk->pMom().perp();
       double heta = hTrk->pMom().pseudoRapidity();
@@ -1605,7 +1609,8 @@ bool StMyAnaTreeMaker::passHadronCuts(StHadronTrack* hTrk)
 double StMyAnaTreeMaker::delPhiCorrect(double p)
 {
   double PI = 3.1415926;  
-  if(p < -2.*PI) p+=2.*PI;
-  if(p > 2.*PI)  p-=2.*PI;
+  if(p < -PI/2.0) p+=2*PI;
+  if(p >  3.*PI/2.)  p-=2.*PI;
   return p;
 }
+
