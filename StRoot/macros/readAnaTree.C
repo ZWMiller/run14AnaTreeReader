@@ -6,7 +6,7 @@ class StPicoDstMaker;
 
 
 StChain *chain;
-void readAnaTree(Int_t nEvents = 20000000, const Char_t *inputFile="newAnaTreeSample.list", const Char_t *outputFile="newAnaTreeSample.root", int trigSelect = 2)
+void readAnaTree(Int_t nEvents = 20000000, const Char_t *inputFile="runlist.list", const Char_t *outputFile="newAnaTreeSample.root", int trigSelect = 2)
 {
 
 	//  Int_t nEvents = 1000;	

@@ -368,31 +368,21 @@ void StMyAnaTreeMaker::declareHistograms() {
   hMuMuDenInvMassvsPtMixLikeNegwHft = new TH3F("hMuMuDenInvMassvsPtMixLikeNegwHft","mixed like-sign -- event mass spectrum wHft;p_{T} (GeV/c);M_{inv} (GeV/c^{2})",nPtBins,ptMin,ptMax,nMassBins,massMin,massMax,nCentrals,0,nCentrals);
 
   cout << "Declare Had Hists" << endl;
-  hHadPt  = new TH1F("hHadPt","Hadron Branch Pt Spectrum; p_{T}; Counts",nPtBins,ptMin,ptMax);
-  hEPt  = new TH1F("hEPt","Electron Branch Pt Spectrum; p_{T}; Counts",nPtBins,ptMin,ptMax);
+  hHadPt  = new TH1F("hHadPt","Hadron Branch Pt Spectrum; p_{T} (GeV/c); Counts",nPtBins,ptMin,ptMax);
+  hEPt  = new TH1F("hEPt","Electron Branch Pt Spectrum; p_{T} (GeV/c); Counts",nPtBins,ptMin,ptMax);
   hHadDca = new TH1F("hHadDca","Hadron Branch DCA; DCA (cm); Counts",1000,0,1); 
   hHadDcaXY = new TH1F("hHadDcaXY","Hadron Branch DCAXY; DCA_XY (cm); Counts",1000,0,1); 
   hHadDcaZ = new TH1F("hHadDcaZ","Hadron Branch DCAZ; DCA_Z (cm); Counts",1000,0,1); 
   hHadPhi = new TH1F("hHadPhi","Hadron Branch Phi; Phi; Counts",300,-3.2,3.2); 
 
   hHadEtaPhi = new TH2F("hHadEtaPhi","Hadron Branch Phi vs Pseudorapidity; Eta; Phi",200,-1,1,300,-3.2,3.2); 
-  hHadEDelPhiPt = new TH2F("hHadEDelPhiPt","Hadron-Electron DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
-  hHadEDelPhiPt_high = new TH2F("hHadEDelPhiPt_high","Hadron-Electron DeltaPhi vs Electron Pt (hp_{T} > 2 GeV/c^{2}); p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
-  hHadEEDelPhiPt_LS = new TH2F("hHadEEDelPhiPt_LS","Hadron-EE LS DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
-  hHadEEDelPhiPt_US = new TH2F("hHadEEDelPhiPt_US","Hadron-EE US DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
-  hHadMuDelPhiPt = new TH2F("hHadMuDelPhiPt","Hadron-Muon DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
-  hHadDcaPt = new TH2F("hHadDcaPt","Hadron Branch DCA vs pT; q*p_{T} (GeV/c^{2}); DCA (cm)",2*nPtBins,-ptMax,ptMax,1000,0,3); 
-
-  hHadgPt  = new TH1F("hHadgPt","Hadron gMom Branch Pt Spectrum; p_{T}; Counts",nPtBins,ptMin,ptMax);
-  hHadgPhi = new TH1F("hHadgPhi","Hadron gMom Branch Phi; Phi; Counts",300,-2.0,4.5); 
-  hHadgEtaPhi = new TH2F("hHadgEtaPhi","Hadron gMom Branch Phi vs Pseudorapidity; Eta; Phi",200,-1,1,300,-2.0,4.5); 
-  hHadgEDelPhiPt = new TH2F("hHadgEDelPhiPt","Hadron gMom-Electron DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
-  hHadgEDelPhiPt_high = new TH2F("hHadgEDelPhiPt_high","Hadron gMom-Electron DeltaPhi vs Electron Pt (hp_{T} > 2 GeV/c^{2}); p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
-  hHadgEEDelPhiPt_LS = new TH2F("hHadgEEDelPhiPt_LS","Hadron gMom-EE LS DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
-  hHadgEEDelPhiPt_US = new TH2F("hHadgEEDelPhiPt_US","Hadron gMom-EE US DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
-  hHadgMuDelPhiPt = new TH2F("hHadgMuDelPhiPt","Hadron gMom-Muon DeltaPhi vs Pt; p_{T} (GeV/c^{2}); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
-  hHadgDcaPt = new TH2F("hHadgDcaPt","Hadron gMom Branch DCA vs pT; q*p_{T} (GeV/c^{2}); DCA (cm)",2*nPtBins,-ptMax,ptMax,1000,0,3); 
-  hHadgPtEPt = new TH2F("hHadgPtEPt","Hadron Pt vs Electron Pt; Electron p_{T}; Hadron p_{T}",nPtBins,ptMin,ptMax,nPtBins,ptMin,ptMax);
+  hHadEDelPhiPt = new TH2F("hHadEDelPhiPt","Hadron-Electron DeltaPhi vs Pt; p_{T} (GeV/c); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadEDelPhiPt_high = new TH2F("hHadEDelPhiPt_high","Hadron-Electron DeltaPhi vs Electron Pt (hp_{T} > 2 GeV/c^{2}); p_{T} (GeV/c); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadEEDelPhiPt_LS = new TH2F("hHadEEDelPhiPt_LS","Hadron-EE LS DeltaPhi vs Pt; p_{T} (GeV/c); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadEEDelPhiPt_US = new TH2F("hHadEEDelPhiPt_US","Hadron-EE US DeltaPhi vs Pt; p_{T} (GeV/c); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadMuDelPhiPt = new TH2F("hHadMuDelPhiPt","Hadron-Muon DeltaPhi vs Pt; p_{T} (GeV/c); #Delta#phi (rads)",nPtBins,ptMin,ptMax,300,-2.0,4.5);
+  hHadDcaPt = new TH2F("hHadDcaPt","Hadron Branch DCA vs pT; q*p_{T} (GeV/c); DCA (cm)",2*nPtBins,-ptMax,ptMax,1000,0,3); 
+  hHadPtEPt = new TH2F("hHadPtEPt","Hadron pT vs Electron pT; Electron p_{T} (GeV/c); Hadron p_{T} (GeV/c)",nPtBins,ptMin,ptMax,nPtBins,ptMin,ptMax); 
 }
 
 
@@ -532,14 +522,9 @@ Int_t StMyAnaTreeMaker::Make() {
       StHadronTrack *hTrk = (StHadronTrack*)mAnaTree->hTrack(j);
       if(!passHadronCuts(hTrk)|| hTrk->id() == eTrk->id()) continue;
       int charge = hTrk->charge();
-      double hpt = hTrk->pMom().perp();
-      double heta = hTrk->pMom().pseudoRapidity();
-      double hphi = hTrk->pMom().phi();
-
-      double hgpt = hTrk->gMom().perp();
-      double hgeta = hTrk->gMom().pseudoRapidity();
-      double hgphi = hTrk->gMom().phi();
-
+      double hpt = hTrk->gMom().perp();
+      double heta = hTrk->gMom().pseudoRapidity();
+      double hphi = hTrk->gMom().phi();
       double hdca = hTrk->dca();
       double hdcaXY = hTrk->dcaXY();
       double hdcaZ  = hTrk->dcaZ();
@@ -551,20 +536,12 @@ Int_t StMyAnaTreeMaker::Make() {
       hHadDcaZ  ->Fill(hdcaZ);
       hHadEtaPhi->Fill(heta,hphi);
       hHadDcaPt ->Fill(charge*hpt,hdca);
+      hHadPtEPt ->Fill(pt,hpt);
 
-      hHadgPt    ->Fill(hgpt);
-      hHadgPtEPt->Fill(pt,hgpt);
-      hHadgPhi   ->Fill(hgphi);
-      hHadgEtaPhi->Fill(hgeta,hgphi);
-      hHadgDcaPt ->Fill(charge*hgpt,hdca);
       double dphi = hphi - phi;
       dphi = delPhiCorrect(dphi);
-      if(hdca<1.0)hHadEDelPhiPt->Fill(pt,dphi); // electron pt
-      if(hpt > 4.0) hHadEDelPhiPt_high->Fill(pt,dphi); // electron pt
-      double dgphi = hgphi - phi;
-      dgphi = delPhiCorrect(dgphi);
-      if(dca<1.0)hHadgEDelPhiPt->Fill(pt,dgphi); // electron pt
-      if(hgpt > 4.0) hHadgEDelPhiPt_high->Fill(pt,dgphi); // electron pt
+      if(hpt > 1.5 && hdca < 1.0) hHadEDelPhiPt->Fill(pt,dphi); // electron pt
+      if(hpt > 4.0 && hdca < 1.0) hHadEDelPhiPt_high->Fill(pt,dphi); // electron pt
     }
   }
 
@@ -612,22 +589,19 @@ Int_t StMyAnaTreeMaker::Make() {
       hMuDcaXYvsPtwHft->Fill(pt*charge,dcaXY);
       hMuDcaZvsPtwHft->Fill(pt*charge,dcaZ);
     }
-/*    // Loop over hadrons for muon correlation
+    // Loop over hadrons for muon correlation
     int nHad = mAnaTree->numberOfHTracks(); 
     for(int j=0; j < nHad; j++)
     {
       StHadronTrack *hTrk = (StHadronTrack*)mAnaTree->hTrack(j);
       if(!passHadronCuts(hTrk) || hTrk->id() == muTrk->id()) continue;
       int charge = hTrk->charge();
-      double hpt = hTrk->pMom().perp();
-      double heta = hTrk->pMom().pseudoRapidity();
-      double hphi = hTrk->pMom().phi();
+      double hpt = hTrk->gMom().perp();
+      double heta = hTrk->gMom().pseudoRapidity();
+      double hphi = hTrk->gMom().phi();
       double hdca = hTrk->dca();
       double hdcaXY = hTrk->dcaXY();
       double hdcaZ  = hTrk->dcaZ();
-      double hgpt = hTrk->gMom().perp();
-      double hgeta = hTrk->gMom().pseudoRapidity();
-      double hgphi = hTrk->gMom().phi();
 
       hHadPt    ->Fill(hpt);
       hHadPhi   ->Fill(hphi);
@@ -636,17 +610,10 @@ Int_t StMyAnaTreeMaker::Make() {
       hHadDcaZ  ->Fill(hdcaZ);
       hHadEtaPhi->Fill(heta,hphi);
 
-      hHadgPt    ->Fill(hgpt);
-      hHadgPhi   ->Fill(hgphi);
-      hHadgEtaPhi->Fill(hgeta,hgphi);
-
       double dphi = hphi - phi;
       dphi = delPhiCorrect(dphi);
       hHadMuDelPhiPt->Fill(pt,dphi); // Muon pt
-      double dgphi = hgphi - phi;
-      dgphi = delPhiCorrect(dgphi);
-      hHadgMuDelPhiPt->Fill(pt,dgphi); // Muon pt
-    }*/
+    }
   }
 
 
@@ -821,29 +788,22 @@ Int_t StMyAnaTreeMaker::Make() {
       StHadronTrack *hTrk = (StHadronTrack*)mAnaTree->hTrack(j);
       if(!passHadronCuts(hTrk) || hTrk->id() == eTrk1->id() || hTrk->id() == eTrk2->id()) continue;
       int charge = hTrk->charge();
-      double hpt = hTrk->pMom().perp();
-      double heta = hTrk->pMom().pseudoRapidity();
-      double hphi = hTrk->pMom().phi();
+      double hpt = hTrk->gMom().perp();
+      double heta = hTrk->gMom().pseudoRapidity();
+      double hphi = hTrk->gMom().phi();
       double hdca = hTrk->dca();
       double hdcaXY = hTrk->dcaXY();
       double hdcaZ  = hTrk->dcaZ();
-      double hgpt = hTrk->gMom().perp();
-      double hgeta = hTrk->gMom().pseudoRapidity();
-      double hgphi = hTrk->gMom().phi();
 
       double dphi = hphi - phi1;
       dphi = delPhiCorrect(dphi);
-      double dgphi = hgphi - phi1;
-      dgphi = delPhiCorrect(dgphi);
       if(charge1==charge2) 
       {
         hHadEEDelPhiPt_LS->Fill(pt1,dphi); // Electron pt
-        hHadgEEDelPhiPt_LS->Fill(pt1,dgphi); // Electron pt
       }
       if(charge1!=charge2) 
       {
         hHadEEDelPhiPt_US->Fill(pt1,dphi); // Muon pt
-        hHadgEEDelPhiPt_US->Fill(pt1,dgphi); // Muon pt
       }
     }
     //} //original end of p/E mass cut

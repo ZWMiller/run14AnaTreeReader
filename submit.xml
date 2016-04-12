@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<job maxFilesPerProcess="1" filesPerHour="1" fileListSyntax="xrootd" simulateSubmission="false">
+  <command>
+    starver SL15c
+    ln -s .sl64_gcc477 .sl64_gcc482
+    root4star -q -b -l 'StRoot/macros/readAnaTree.C(20000000,"runlist.list","anaTree_$JOBID.root", 2)'
+  </command>
+
+  <SandBox installer="ZIP">
+    <Package name="LocalLibraries_hists">
+      <File>file:./runlist.list</File>
+      <File>file:./StRoot/</File>
+      <File>file:./.sl64_gcc482/</File>
+      <File>file:./.sl64_gcc447/</File>
+      <File>file:./recenter_correction.root</File>
+      <File>file:./runNumberList_run14AuAu200</File>
+    </Package>
+  </SandBox>
+
+  <stdout URL="file:/star/data01/pwg/zamiller/anaTreeHadronCorr/Log/$JOBID.out"/>
+  <stderr URL="file:/star/data01/pwg/zamiller/anaTreeHadronCorr/Log/$JOBID.err"/>
+  <!--  <output fromScratch="*picoDst.root" toURL="file:/star/u/zamiller/run14NPE/PicoProd/" /> -->
+
+  <Generator>
+    <Location>/star/data01/pwg/zamiller/anaTreeHadronCorr/Log/report/</Location>
+    <ScriptLocation>/star/data01/pwg/zamiller/anaTreeHadronCorr/Log/csh/</ScriptLocation>
+    <ListLocation>/star/data01/pwg/zamiller/anaTreeHadronCorr/Log/list/</ListLocation>
+  </Generator>
+
+  <output fromScratch="anaTree*.root" toURL="file:/star/data01/pwg/zamiller/anaTreeHadronCorr/out/" />
+</job>
+
+
+

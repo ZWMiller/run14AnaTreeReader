@@ -239,18 +239,7 @@ class StMyAnaTreeMaker : public StMaker {
       TH2F *hHadDcaPt;
       TH2F *hHadEEDelPhiPt_LS;
       TH2F *hHadEEDelPhiPt_US;
-
-      // Using global momentum
-      TH1F *hHadgPt;
-      TH1F *hHadgPhi;
-      TH2F *hHadgEtaPhi;
-      TH2F *hHadgEDelPhiPt;
-      TH2F *hHadgEDelPhiPt_high;
-      TH2F *hHadgMuDelPhiPt;
-      TH2F *hHadgDcaPt;
-      TH2F *hHadgEEDelPhiPt_LS;
-      TH2F *hHadgEEDelPhiPt_US;
-      TH2F *hHadgPtEPt;
+      TH2F *hHadPtEPt;
 
 		//TH2F *hDenInvMassvsPtMixLikePosMB;
 		//TH2F *hDenInvMassvsPtMixLikeNegMB;

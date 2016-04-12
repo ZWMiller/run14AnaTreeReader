@@ -13,15 +13,15 @@ void histMaker(const char* fileName="test")
 
   //For now, just define binning here
   const int numPtBins = 8;
-  float lowpt[numPtBins]  = {0.2, 0.6, 1.0, 1.5, 
-    2.0, 2.5, 3.5, 6.5};
-  float highpt[numPtBins] = {0.6, 1.0, 1.5, 2.0,
-    2.5, 3.5, 6.5, 10.};
+  float lowpt[numPtBins]  = {1.0, 2.0, 3.0, 4.0, 
+                             5.0, 6.0, 8.0, 10.0};
+  float highpt[numPtBins] = {2.0, 3.0, 4.0, 5.0,
+                             6.0, 8.0, 10., 20. };
 
 
   // Get Histos
-  TH2F* eHadDelPhiPt = (TH2F*)f->Get("hHadgEDelPhiPt");
-  TH2F* hadPtEPt = (TH2F*)f->Get("hHadgPtEPt");
+  TH2F* eHadDelPhiPt = (TH2F*)f->Get("hHadEDelPhiPt");
+  TH2F* hadPtEPt = (TH2F*)f->Get("hHadPtEPt");
   TH1F* ePt = (TH1F*)f->Get("hEPt");
   float trigCount[numPtBins];
   if(DEBUG) cout << "Get Hist." << endl;

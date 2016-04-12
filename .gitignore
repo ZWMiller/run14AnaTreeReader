@@ -3,3 +3,12 @@
 *.log
 .sl64_gcc482*
 *.consign
+LocalLibraries*
+*.session.xml
+*.csh
+*.err
+*.out
+*.report
+*.condor
+Log/list/*
+StRoot/StTriggerUtilities/L2Emulator/L2algoUtil/.consign
