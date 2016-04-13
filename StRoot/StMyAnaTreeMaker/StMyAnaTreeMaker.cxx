@@ -370,6 +370,8 @@ void StMyAnaTreeMaker::declareHistograms() {
   cout << "Declare Had Hists" << endl;
   hHadPt  = new TH1F("hHadPt","Hadron Branch Pt Spectrum; p_{T} (GeV/c); Counts",nPtBins,ptMin,ptMax);
   hEPt  = new TH1F("hEPt","Electron Branch Pt Spectrum; p_{T} (GeV/c); Counts",nPtBins,ptMin,ptMax);
+  hEEPt_US  = new TH1F("hEEPt_US","Electron Pair US Pt Spectrum; p_{T} (GeV/c); Counts",nPtBins,ptMin,ptMax);
+  hEEPt_LS  = new TH1F("hEEPt_LS","Electron Pair LS Pt Spectrum; p_{T} (GeV/c); Counts",nPtBins,ptMin,ptMax);
   hHadDca = new TH1F("hHadDca","Hadron Branch DCA; DCA (cm); Counts",1000,0,1); 
   hHadDcaXY = new TH1F("hHadDcaXY","Hadron Branch DCAXY; DCA_XY (cm); Counts",1000,0,1); 
   hHadDcaZ = new TH1F("hHadDcaZ","Hadron Branch DCAZ; DCA_Z (cm); Counts",1000,0,1); 
@@ -540,8 +542,8 @@ Int_t StMyAnaTreeMaker::Make() {
 
       double dphi = hphi - phi;
       dphi = delPhiCorrect(dphi);
-      if(hpt > 1.5 && hdca < 1.0) hHadEDelPhiPt->Fill(pt,dphi); // electron pt
-      if(hpt > 4.0 && hdca < 1.0) hHadEDelPhiPt_high->Fill(pt,dphi); // electron pt
+      if(pt > 1.0 && hpt > 1.5 && hdca < 1.0) hHadEDelPhiPt->Fill(pt,dphi); // electron pt
+      if(pt > 1.0 && hpt > 4.0 && hdca < 1.0) hHadEDelPhiPt_high->Fill(pt,dphi); // electron pt
     }
   }
 
@@ -799,10 +801,12 @@ Int_t StMyAnaTreeMaker::Make() {
       dphi = delPhiCorrect(dphi);
       if(charge1==charge2) 
       {
+        hEEPt_LS->Fill(pt1); // need for normalization
         hHadEEDelPhiPt_LS->Fill(pt1,dphi); // Electron pt
       }
       if(charge1!=charge2) 
       {
+        hEEPt_US->Fill(pt1); // need for normalization
         hHadEEDelPhiPt_US->Fill(pt1,dphi); // Muon pt
       }
     }

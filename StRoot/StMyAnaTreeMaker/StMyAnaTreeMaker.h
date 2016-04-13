@@ -225,6 +225,8 @@ class StMyAnaTreeMaker : public StMaker {
 		TH3F *hMuMuDenInvMassvsPtMixLikeNegwHft;
 
       TH1F *hEPt;
+      TH1F *hEEPt_US;
+      TH1F *hEEPt_LS;
       //hadron branches
       TH1F *hHadPt;
       TH1F *hHadDca;
